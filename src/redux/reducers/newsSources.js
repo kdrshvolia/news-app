@@ -1,0 +1,1 @@
+export default function newsSources(state = [], action) {  return state;}

@@ -1,0 +1,1 @@
+import { combineReducers } from 'redux';import newsSources from './newsSources';export default combineReducers({ newsSources });
