@@ -1,1 +1,1 @@
-export default function newsSources(state = [], action) {  return state;}
+export default function newsSources(sources = [], action) {  return sources;}

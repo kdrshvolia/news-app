@@ -1,1 +1,1 @@
-import { combineReducers } from 'redux';import newsSources from './newsSources';export default combineReducers({ newsSources });
+import { combineReducers } from 'redux';import newsSources from './newsSources';const rootReducer = combineReducers({ newsSources });export default rootReducer;

@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadSources } from '../../redux/actions/sourcesActions';
 
-const NewsSourcesBoard = ({ sources, actions }) => {
-  return <section>{console.log(sources)}</section>;
+const NewsSourcesBoard = ({ newsSources, actions }) => {
+  return <section>{console.log(newsSources)}</section>;
 };
 
 const mapStateToProps = (state) => {
   return {
-    sources: state.sources,
+    sources: state.newsSources,
   };
 };
 
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 NewsSourcesBoard.propTypes = {
-  sources: PropTypes.array.isRequired,
+  newsSources: PropTypes.array.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsSourcesBoard);
