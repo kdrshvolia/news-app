@@ -1,1 +1,2 @@
-export const LOAD_SOURCES = 'LOAD_SOURCES';
+export const LOAD_SOURCES = 'LOAD_SOURCES';
+export const LOAD_SOURCES_SUCCESS = 'LOAD_SOURCES_SUCCESS';
