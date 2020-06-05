@@ -1,0 +1,1 @@
+import * as types from './actionTypes';const setFilter = (filterParam) => {  return {    type: types.SET_FILTER,    filterParam,  };};export { setFilter };
