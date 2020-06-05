@@ -9,7 +9,7 @@ const loadSourcesSuccess = (sources) => {
 };
 
 const loadSources = () => (dispatch) => {
-  return getSources().then((sources) => dispatch(loadSourcesSuccess(sources)));
+  return getSources().then((sources) => dispatch(loadSourcesSuccess(sources.sources)));
 };
 
 export { loadSourcesSuccess, loadSources };
