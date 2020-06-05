@@ -1,1 +1,1 @@
-export default function newsSources(sources = [], action) {  return sources;}
+import * as types from '../actions/actionTypes';export default function newsSources(sources = [], action) {  switch (action.type) {    case types.LOAD_SOURCES_SUCCESS:      return action.sources;    default:      return sources;  }}
