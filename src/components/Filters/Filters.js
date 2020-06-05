@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FilterSelect from '../FilterSelect/FilterSelect';
 
-const Filters = ({ filters }) => {
+const Filters = ({ newsFilters }) => {
   return (
     <div>
-      {filters.values().map((filter) => (
+      {Object.values(newsFilters).map((filter) => (
         <FilterSelect filterParam={filter} />
       ))}
     </div>
@@ -15,12 +15,12 @@ const Filters = ({ filters }) => {
 
 const mapStateToProps = (state) => {
   return {
-    filters: state.newsFilters,
+    newsFilters: state.newsFilters,
   };
 };
 
 Filters.propTypes = {
-  filters: PropTypes.object.isRequired,
+  newsFilters: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Filters);
