@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadSources } from '../../redux/actions/sourcesActions';
+import SourceItem from '../SourceItem/SourceItem';
 
 const NewsSourcesBoard = ({ newsSources, actions }) => {
   useEffect(() => {
     actions.loadSources();
   }, [actions]);
 
-  return <section>{console.log(newsSources)}</section>;
+  return (
+    <section>
+      {newsSources.map((source) => (
+        <SourceItem source={source} />
+      ))}
+    </section>
+  );
 };
 
 const mapStateToProps = (state) => {
