@@ -1,0 +1,1 @@
+import React from 'react';import PropTypes from 'prop-types';const SourceItem = ({ source }) => {  return <div>{source.name}</div>;};SourceItem.propTypes = {  source: PropTypes.object.isRequired,};export default SourceItem;
