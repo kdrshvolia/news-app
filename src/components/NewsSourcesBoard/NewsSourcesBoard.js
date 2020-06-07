@@ -10,16 +10,32 @@ const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
     actions.loadSources();
   }, [actions]);
 
-  const displayedSources = () =>
+  const multiPropsFilter = (products, filters) => {
+    const filterKeys = Object.keys(filters);
+    return products.filter((product) => {
+      return filterKeys.every((key) => {
+        if (!filters[key].length) return true;
+        // Loops again if product[key] is an array (for material attribute).
+        if (Array.isArray(product[key])) {
+          return product[key].some((keyEle) => filters[key].includes(keyEle));
+        }
+        return filters[key].includes(product[key]);
+      });
+    });
+  };
+
+  const displayedSources = multiPropsFilter(newsSources, selectedFilters);
+
+  /* const displayedSources = () =>
     newsSources.filter((obj) =>
       Object.keys(selectedFilters).every(
         (parameter) => obj[parameter] === selectedFilters[parameter],
       ),
-    );
+    ); */
 
   return (
     <section>
-      {displayedSources().map((source) => (
+      {displayedSources.map((source) => (
         <SourceItem source={source} />
       ))}
     </section>
