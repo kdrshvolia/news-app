@@ -6,8 +6,8 @@ import FilterSelect from '../FilterSelect/FilterSelect';
 const Filters = ({ newsFilters }) => {
   return (
     <div>
-      {Object.values(newsFilters).map((filter) => (
-        <FilterSelect filterParam={filter} />
+      {Object.keys(newsFilters).map((key, index) => (
+        <FilterSelect type={key} filterParam={newsFilters[key]} />
       ))}
     </div>
   );

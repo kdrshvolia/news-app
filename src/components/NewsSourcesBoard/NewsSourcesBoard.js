@@ -5,14 +5,21 @@ import { connect } from 'react-redux';
 import { loadSources } from '../../redux/actions/sourcesActions';
 import SourceItem from '../SourceItem/SourceItem';
 
-const NewsSourcesBoard = ({ newsSources, actions }) => {
+const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
   useEffect(() => {
     actions.loadSources();
   }, [actions]);
 
+  const displayedSources = () =>
+    newsSources.filter((obj) =>
+      Object.keys(selectedFilters).every(
+        (parameter) => obj[parameter] === selectedFilters[parameter],
+      ),
+    );
+
   return (
     <section>
-      {newsSources.map((source) => (
+      {displayedSources().map((source) => (
         <SourceItem source={source} />
       ))}
     </section>
@@ -22,6 +29,7 @@ const NewsSourcesBoard = ({ newsSources, actions }) => {
 const mapStateToProps = (state) => {
   return {
     newsSources: state.newsSources,
+    selectedFilters: state.filterReducer,
   };
 };
 
