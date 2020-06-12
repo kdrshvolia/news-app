@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadSources } from '../../redux/actions/sourcesActions';
 import SourceItem from '../SourceItem/SourceItem';
+import { StyledBoard } from './StyledComponents';
 
 const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
   useEffect(() => {
@@ -34,11 +35,11 @@ const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
     ); */
 
   return (
-    <section>
+    <StyledBoard>
       {displayedSources.map((source) => (
         <SourceItem source={source} />
       ))}
-    </section>
+    </StyledBoard>
   );
 };
 
