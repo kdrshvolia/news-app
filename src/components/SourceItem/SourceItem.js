@@ -8,7 +8,9 @@ const SourceItem = ({ source }) => {
       {source.name}
       <SourceInfo>
         {source.description}
-        {source.url}
+        <a href={source.url} target="_blank" rel="noopener norefferer">
+          {source.url}
+        </a>
       </SourceInfo>
     </Source>
   );
