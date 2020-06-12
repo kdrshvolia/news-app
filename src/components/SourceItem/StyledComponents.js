@@ -26,8 +26,8 @@ const Source = styled.div`
   flex: auto;
   &:hover ${SourceInfo} {
     top: 0;
-    -webkit-transition: all 1s, -webkit-transform 1s;
-    transition: all 1s, transform 1s;
+    -webkit-transition: all 0.7s, -webkit-transform 0.7s;
+    transition: all 0.7s, transform 0.7s;
     width: 100%;
     height: 100%;
     opacity: 1;
