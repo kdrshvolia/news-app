@@ -19,10 +19,11 @@ const Source = styled.div`
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  max-width: 450px;
+  width: 450px;
   border: 2px solid #008bc8;
   margin: 20px 0;
   padding: 50px 0;
+  flex: auto;
   &:hover ${SourceInfo} {
     top: 0;
     -webkit-transition: all 1s, -webkit-transform 1s;
