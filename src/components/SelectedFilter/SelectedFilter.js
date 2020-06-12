@@ -7,8 +7,10 @@ const SelectedFilter = ({ type, filter, resetFilter }) => {
   return <div onClick={() => resetFilter(type, filter)}>{filter}</div>;
 };
 
-const mapDispatchToProps = {
-  resetFilter,
+SelectedFilter.propTypes = {
+  type: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
+  resetFilter: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(SelectedFilter);
+export default connect(null, { resetFilter })(SelectedFilter);
