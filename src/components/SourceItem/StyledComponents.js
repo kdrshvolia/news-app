@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 const SourceInfo = styled.div`
   display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
   align-items: center;
   position: absolute;
   top: -100%;
@@ -16,10 +19,10 @@ const Source = styled.div`
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  max-width: 500px;
+  max-width: 450px;
   border: 2px solid #008bc8;
   margin: 20px 0;
-  padding: 25px 0;
+  padding: 50px 0;
   &:hover ${SourceInfo} {
     top: 0;
     -webkit-transition: all 1s, -webkit-transform 1s;
