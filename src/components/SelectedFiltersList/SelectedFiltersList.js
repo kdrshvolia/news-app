@@ -5,9 +5,9 @@ import SelectedFilter from '../SelectedFilter/SelectedFilter';
 const SelectedFiltersList = ({ selectedFilters }) => {
   return (
     <div>
-      {Object.values(selectedFilters).map((filter) => (
-        <SelectedFilter filter={filter} />
-      ))}
+      {Object.keys(selectedFilters).map((key) =>
+        selectedFilters[key].map((filter) => <SelectedFilter type={key} filter={filter} />),
+      )}
     </div>
   );
 };
