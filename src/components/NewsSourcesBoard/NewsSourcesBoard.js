@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadSources } from '../../redux/actions/sourcesActions';
 import SourceItem from '../SourceItem/SourceItem';
 import { StyledBoard } from './StyledComponents';
+import PaginationLink from '../Pagination/Pagination';
 
 const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const setPage = (value) => {
+    setCurrentPage(value);
+  };
+
   useEffect(() => {
     actions.loadSources();
   }, [actions]);
@@ -27,18 +34,12 @@ const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
 
   const displayedSources = multiPropsFilter(newsSources, selectedFilters);
 
-  /* const displayedSources = () =>
-    newsSources.filter((obj) =>
-      Object.keys(selectedFilters).every(
-        (parameter) => obj[parameter] === selectedFilters[parameter],
-      ),
-    ); */
-
   return (
     <StyledBoard>
-      {displayedSources.map((source) => (
+      {displayedSources.slice((currentPage - 1) * 6, 6 * currentPage).map((source) => (
         <SourceItem source={source} />
       ))}
+      <PaginationLink currentPage={currentPage} setPage={setPage} />
     </StyledBoard>
   );
 };
