@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import { Link } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
+import PropTypes from 'prop-types';
 
 const browserHistory = createBrowserHistory();
 
@@ -37,3 +38,10 @@ export default function PaginationLink({ currentPage, setPage, sourcesLength, so
     </Router>
   );
 }
+
+PaginationLink.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  sourcesLength: PropTypes.number.isRequired,
+  sourcesPerPage: PropTypes.number.isRequired,
+};
