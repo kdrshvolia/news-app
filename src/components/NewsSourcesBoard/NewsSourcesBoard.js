@@ -7,7 +7,7 @@ import SourceItem from '../SourceItem/SourceItem';
 import { StyledBoard } from './StyledComponents';
 import PaginationLink from '../Pagination/Pagination';
 
-const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
+const NewsSourcesBoard = ({ newsSources, sourcesPerPage, selectedFilters, actions }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const setPage = (value) => {
@@ -36,10 +36,17 @@ const NewsSourcesBoard = ({ newsSources, selectedFilters, actions }) => {
 
   return (
     <StyledBoard>
-      {displayedSources.slice((currentPage - 1) * 6, 6 * currentPage).map((source) => (
-        <SourceItem source={source} />
-      ))}
-      <PaginationLink currentPage={currentPage} setPage={setPage} />
+      {displayedSources
+        .slice((currentPage - 1) * sourcesPerPage, sourcesPerPage * currentPage)
+        .map((source) => (
+          <SourceItem source={source} />
+        ))}
+      <PaginationLink
+        currentPage={currentPage}
+        setPage={setPage}
+        sourcesLength={displayedSources.length}
+        sourcesPerPage={sourcesPerPage}
+      />
     </StyledBoard>
   );
 };

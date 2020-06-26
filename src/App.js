@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Filters />
-      <NewsSourcesBoard />
+      <NewsSourcesBoard sourcesPerPage={6} />
     </div>
   );
 }
