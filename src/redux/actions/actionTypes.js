@@ -2,3 +2,4 @@ export const LOAD_SOURCES = 'LOAD_SOURCES';
 export const LOAD_SOURCES_SUCCESS = 'LOAD_SOURCES_SUCCESS';
 export const SET_FILTER = 'SET_FILTER';
 export const RESET_FILTER = 'RESET_FILTER';
+export const LOAD_HEADLINES = 'LOAD_HEADLINES';
