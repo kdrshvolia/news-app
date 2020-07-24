@@ -6,4 +6,12 @@ const getSources = () => {
     .catch(handleError);
 };
 
-export { getSources };
+const getHeadlines = (source) => {
+  return fetch(
+    `https://newsapi.org/v2/top-headlines?sources=${source}b&apiKey=37d3cffc174f4fdd82c1ca7c33b4fe61`,
+  )
+    .then(handleResponse)
+    .catch(handleError);
+};
+
+export { getSources, getHeadlines };
